@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mee-islyna6653-rotanakkosal-next-v1-deployment
+  labels:
+    app: mee-islyna6653-rotanakkosal-next-v1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mee-islyna6653-rotanakkosal-next-v1
+  template:
+    metadata:
+      labels:
+        app: mee-islyna6653-rotanakkosal-next-v1
+    spec:
+      containers:
+        - name: mee-islyna6653-rotanakkosal-next-v1-container
+          image: pipejet/mee-islyna6653-rotanakkosal-next-v1:0
+          ports:
+            - containerPort: 3000
