@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: mee-islyna6653-rotanakkosal-next-v1-https-ingress
+  namespace: mee-islyna6653-rotanakkosal-next-v1
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/use-regex: "true"
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+        - mee-islyna6653-rotanakkosal-next-v1.assessify.org
+      secretName: mee-islyna6653-rotanakkosal-next-v1-secret-tls
+  rules:
+    - host: mee-islyna6653-rotanakkosal-next-v1.assessify.org
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: mee-islyna6653-rotanakkosal-next-v1-service
+                port:
+                  number: 8232
