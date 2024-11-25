@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: mee-islyna6653-rotanakkosal-next-v1-certificate
+  namespace: mee-islyna6653-rotanakkosal-next-v1
+spec:
+  secretName: mee-islyna6653-rotanakkosal-next-v1-secret-tls
+  commonName: mee-islyna6653-rotanakkosal-next-v1.assessify.org
+  dnsNames:
+  - mee-islyna6653-rotanakkosal-next-v1.assessify.org
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
